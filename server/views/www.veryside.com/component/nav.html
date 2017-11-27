@@ -1,0 +1,94 @@
+<div class="zhanwei" id="return-top-flag">
+
+</div>
+<div class="top-menu-bar" >
+
+    <div class="top-menu-list">
+        <div class="top-menu-box">
+            <a target="_self" href="/">
+                <img class="logo" src="/assets/images/m-header-logo-white.png" alt="到VerySide首页">
+            </a>
+            <div class="nav">
+                <% if(this.indexlist.nav){ var navItem = this.indexlist.nav; %>
+                <% navItem.forEach(function(info,index){ %>
+                <div>
+                    <a target="_self" class="nav-list <%= info.select ? 'active' : '' %>" href="<%= index == 0 ? '/' : info.url %>">
+                        <%= info.title %>
+                        <span class="hover-change"><%= info.title%></span>
+                    </a>
+                    <%if (info.list instanceof Array && info.list.length > 0){var lists = info.list;%>
+                    <ul class="dorp-down-list">
+                        <%lists.forEach(function(cur,index){%>
+                        <li><a href="<%= cur.url||'javascript:;'%>"><%= cur.title||''%></a></li>
+                        <%})%>
+                    </ul>
+                    <%}%>
+                </div>
+
+                <% }) %>
+                <% } %>
+            </div>
+            <a target="_self" class="search" href="/search/"></a>
+            <div class="top-menu-login">
+
+                <% if(this.user_info && this.user_info.nickname != undefined){ %>
+
+                    <% if(this.status == "info"){ %>
+
+                    <a class="login-btn" href="javascript:;"><%= this.user_info.nickname||'未知' %><span><%= this.user_info.nickname||'未知' %></span></a>
+
+                    <% }else{ %>
+                    <a class="login-btn" href="javascript:;" onclick="window.location.href='/user/info?url='+encodeURIComponent('http://' + window.location.host + window.location.pathname)" target="_self"><%= this.user_info.nickname || '未知' %><span><%= this.user_info.nickname ||'未知' %></span></a>
+                    <% } %>
+                    <ul>
+                        <li>
+                            <% if(this.status == "info"){ %>
+                                <a href="javascript:;">我的资料</a>
+                            <% }else{ %>
+                                <a href="javascript:;" onclick="window.location.href='/user/info?url='+encodeURIComponent('http://' + window.location.host + window.location.pathname)" target="_self">我的资料</a>
+                            <% } %>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;" target="_self" id="logout">退出登录</a>
+                        </li>
+                    </ul>
+
+                <% } else { %>
+
+                    <% if(this.status !== "login"){ %>
+                    <a class="login-btn" id="goToLogin" href="javascript:;" onclick="window.location.href='/user?url='+encodeURIComponent('http://' + window.location.host + window.location.pathname)" target="_self">登录<span>登录</span></a>
+                    <% } %>
+
+                <% } %>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!--<div class="white-block"></div>-->
+</div>
+<div class="search-box">
+    <div class="searchWordContain">
+        <div class="searchWord">
+            <div>
+                <input type="text" placeholder="请输入你要搜索的内容…">
+                <span class="placeholder">请输入你要搜索的内容…</span>
+            </div>
+            <span class="search-close"></span>
+        </div>
+    </div>
+    <div class="aboutThis">
+        <div class="nav-search-tmpl" id="nav-search-tmpl" temId="j-nav-search-tmpl">
+
+        </div>
+    </div>
+</div>
+<script id="j-nav-search-tmpl" type="text/template">
+    {{ for(var i = 0; i < it.length ;i++){ }}
+    <span>{{= it[i].title}}</span>
+    {{ } }}
+
+</script>

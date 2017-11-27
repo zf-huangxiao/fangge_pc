@@ -1,0 +1,57 @@
+.search-default{
+  width:780px;
+  margin: 0 auto 50px;
+  overflow: hidden;
+  h1{
+    font-size: 18px;
+    text-align: left;
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #000;
+
+  }
+
+  .default-list{
+    width: 100%;
+    overflow: hidden;
+
+    .column{
+      display: inline-block;
+      width:250px;
+      float: left;
+      margin-right: 15px;
+      margin-top: 20px;
+      overflow: hidden;
+      &:nth-of-type(3n){
+        margin-right: 0;
+      }
+      &>div{
+        width: 100%;
+        height:167px;
+        overflow: hidden;
+        img{
+          display: block;
+          width:100%;
+          height: 100%;
+        }
+      }
+      h3{
+        font-size: 14px;
+        font-weight: normal;
+        color: #000;
+        text-align: center;
+        padding: 15px 0;
+        &:hover{
+          color: #999;
+        }
+      }
+    }
+  }
+}
+
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}

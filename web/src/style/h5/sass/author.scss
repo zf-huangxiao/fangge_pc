@@ -1,0 +1,220 @@
+@import '../storebase';
+@import '../components/whitespace';
+@import '../components/footer';
+@import '../components/page';
+@import '../components/morelists';
+@import '../components/load-more';
+@import '../components/nav';
+@import '../components/return-top';
+@import '../components/breadcrumbs';
+@import '../components/share';
+$box-width:1100px;
+$bg:#f8f8f8;
+.body-wrapper{
+  width: $box-width;
+  margin:0 auto;
+  .breadcrumbs{
+    margin-bottom: 30px;
+  }
+  .editor{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 38px 150px;
+
+    img{
+      display: inline-block;
+      width:120px;
+      height:120px;
+      border:none;
+      float: left;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+    }
+    span{
+      display: block;
+      float: left;
+      height: 120px;
+      color: #000;
+      padding:0 45px;
+      i{
+        font-style: normal;
+        font-size: 18px;
+        margin-right:13px;
+        height: 60px;
+        line-height: 60px;
+        display: block;
+
+        &:first-child{
+          //padding-top: 20px;
+          line-height: 90px;
+        }
+        &:last-child{
+          font-size: 14px;
+          line-height: 40px;
+        }
+      }
+    }
+    p{
+      display: table;
+      em{
+        display: table-cell;
+        font-style: normal;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        color: #666;
+      }
+      padding-left: 45px;
+      float: left;
+      width: 350px;
+      height: 120px;
+      line-height: 30px;
+      text-align: justify;
+      font-size: 14px;
+      color:#000;
+
+    }
+
+  }
+  .articles{
+    width: 100%;
+    min-height: 640px;
+    position:relative;
+    ul{
+      width: 770px;
+      list-style: none;
+      overflow: hidden;
+      li{
+        width: 100%;
+        overflow: hidden;
+        padding: 40px 0;
+        border-top: 1px solid #ccc;
+        &:first-child{
+          border-top: none;
+        }
+        &>a{
+          display: block;
+          width: 346px;
+          height: 300px;
+          float: left;
+          overflow: hidden;
+          img{
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
+
+        }
+        div{
+          width: 308px;
+          margin-left: 20px;
+          float: left;
+          overflow: hidden;
+          &>p{
+            position: relative;
+            padding-left: 8px;
+            &:before{
+              display: block;
+              content: '';
+              width: 1px;
+              height: 14px;
+              background: #fe1b1b;
+              position: absolute;
+              left: 0;
+              top: 50%;
+              margin-top: -7px;
+            }
+            .tag{
+              display: inline-block;
+              font-size: 14px;
+              color: #333;
+              margin:30px 0;
+              &:hover{
+                color: #666;
+              }
+            }
+          }
+
+          h1{
+
+            a{
+              font-size: 16px;
+              color: #000;
+              height: 56px;
+              line-height: 28px;
+              @include text-clamp(2);
+              &:hover{
+                color: #666;
+              }
+            }
+          }
+          span{
+            font-size: 12px;
+            display: block;
+            width: 100%;
+            color: #CCCCCC;
+            margin: 15px 0;
+            a{
+              display: none;
+              text-decoration: none;
+              margin: 0 15px 0 5px;
+              color: #000;
+              &:hover{
+                color: #666;
+              }
+            }
+          }
+        }
+
+      }
+    }
+    .advert{
+      width: 300px;
+      margin-top:40px;
+      .advert_one{
+        width: 100%;
+        height: 600px;
+        background: url("http://img.veryside.com/static/pc/rightad.jpg")no-repeat 100%;
+        a{
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .advert_two{
+        width: 100%;
+        height: 250px;
+        background: url("../images/authorneed.jpg") no-repeat 100%;
+        display: none;
+        a{
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .posTop{
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .fixed{
+      position: fixed;
+      -webkit-transform: translateZ(0);
+      top: 60px;
+      left: 50%;
+      margin-left: 250px;
+      z-index: 100;
+    }
+    .posBottom{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .recommend{
+    margin-top: 50px;
+  }
+}

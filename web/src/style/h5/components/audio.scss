@@ -1,0 +1,96 @@
+.my_article_audio{
+  width: 640px;
+  margin: 0 auto;
+  overflow: hidden;
+  .control{
+    overflow: hidden;
+    display: table;
+    width: 100%;
+    height: 48px;
+    margin: 30px 0;
+    .play_btn{
+      cursor: pointer;
+      display: table-cell;
+      width: 48px;
+      height: 48px;
+      background: url("../images/pause1.png") no-repeat center;
+      background-size: 48px 48px;
+    }
+    .pause{
+      cursor: pointer;
+      display: table-cell;
+      width: 48px;
+      height: 48px;
+      background: url("../images/play1.png") no-repeat center;
+      background-size: 48px 48px;
+    }
+    .audio_title{
+      display: table-cell;
+      vertical-align: middle;
+      height:48px;
+      font-size: 16px;
+      padding: 0 12px;
+
+    }
+    .audio_jump{
+      display: table-cell;
+      width: 40px;
+      height: 40px;
+      background: url("../images/jump.png") no-repeat center;
+      background-size: 40px 40px;
+      &.jumping{
+        background: url("../images/jump.gif") no-repeat center;
+        background-size: 40px 40px;
+      }
+    }
+
+
+  }
+  .progress{
+    overflow: hidden;
+    display: none;
+    .time{
+      width: 100%;
+      overflow: hidden;
+      span{
+        font-size: 10px;
+        color: #666;
+      }
+      .gone{
+        float: left;
+      }
+      .total{
+        float: right;
+      }
+    }
+    .process_bar_outer{
+      width: 100%;
+      background: #CCCCCC;
+      height: 3px;
+      margin: 10px 0;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      .process_bar_inner{
+        width: 0;
+        height: 100%;
+        background: #fb1313;
+        position: relative;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        i{
+          display: block;
+          width: 1px;
+          height: 14px;
+          background: #000;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          margin-top: -7px;
+
+
+        }
+      }
+    }
+
+  }
+}

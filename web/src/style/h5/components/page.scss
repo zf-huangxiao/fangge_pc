@@ -1,0 +1,108 @@
+.pageNav {
+  margin: 50px auto;
+  text-align: center
+}
+
+.pageNav a {
+  display: inline-block!important;
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+  white-space: nowrap;
+  background: #FFF;
+  //border: 1px solid #ccc;
+  //margin: 0 1px;
+  min-width: 12px;
+  margin: 0 10px;
+  color: #666;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-weight: 400;
+  font-family: Arial, sans-serif
+}
+
+.pageNav .currentpage, .pageNav a:hover {
+  //background-color: #fb1313;
+  //border:1px solid #fb1313;
+  //color: #fff
+}
+
+.pageNav .pageNextico {
+  height: 58px;
+  width: 55px;
+  position: absolute;
+  right: 0;
+  top: 0
+}
+
+.goods_list ul li, .goods_list ul li .pic {
+  position: relative
+}
+
+.pageNav .pageNext, .pageNav .pagePrev {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pageNav .disabled_page, .pageNav .disabled_page:hover {
+  background-color: #fff;
+  //border:1px solid #ccc;
+  color: #ccc;
+  cursor: not-allowed
+}
+a.pagePrev,a.pageNext{
+  font-family: monospace;
+}
+
+
+
+.pageNav{
+  a{
+    border: none;
+    font-size: 14px;
+    color: #000;
+    height: 50px;
+    line-height: 50px;
+
+  }
+  a:hover{
+    background:none;
+    //color: red;
+    font-size: 20px;
+  }
+  .currentpage{
+    //color: red;
+    font-size: 20px;
+    background:none;
+  }
+  .pagePrev,.pageNext{
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0 60px;
+  }
+  .pagePrev{
+    background: url("../images/guidepic/goods_left2.png") no-repeat center;
+    background-size: 100%;
+  }
+  .pagePrev:hover{
+    background: url("../images/guidepic/goods_left1.png") no-repeat center;
+    background-size: 100%;
+    font-size: 12px;
+  }
+  .pageNext{
+    background: url("../images/guidepic/goods_right2.png") no-repeat center;
+    background-size: 100%;
+  }
+  .pageNext:hover{
+    background: url("../images/guidepic/goods_right1.png") no-repeat center;
+    background-size: 100%;
+    font-size: 12px;
+  }
+  .disabled_page:hover{
+    border: none;
+  }
+
+}

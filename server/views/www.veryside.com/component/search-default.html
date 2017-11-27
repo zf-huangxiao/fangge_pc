@@ -1,0 +1,29 @@
+<div class="search-default" id="search-default">
+    <h1>你可能感兴趣</h1>
+    <div class="default-list" id="default-list" temId="j-tmpl-default">
+
+        <% if(this.indexlist.recommend){ var items = this.indexlist.recommend; %>
+            <% items.forEach(function(info,index){ %>
+            <a class="column pic" href="<%= info.url %>">
+                <div>
+                    <img src="<%= info.thumb %>" alt="">
+                </div>
+                <h3><%= info.title %></h3>
+            </a>
+            <% }) %>
+        <% } %>
+    </div>
+</div>
+
+<script id="j-tmpl-default" type="text/template">
+
+    {{ for(var i = 0; i < it.recommend.length; i++){ }}
+    <a class="column" href="{{= it.recommend[i].url }}">
+        <div>
+            <img src="{{= it.recommend[i].thumb }}" alt="">
+        </div>
+        <h3>{{= it.recommend[i].title }}</h3>
+    </a>
+
+    {{ } }}
+</script>

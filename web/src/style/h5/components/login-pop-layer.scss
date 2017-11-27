@@ -1,0 +1,212 @@
+#login_pop_layer{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right:0;
+  background-color: rgba(0,0,0,.5);
+  #login-box{
+    width: 364px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-left: -182px;
+    margin-top: -210px;
+    padding: 0 50px;
+    .cell-phone{
+      border-bottom: 1px solid #000;
+      height: 40px;
+      line-height: 40px;
+      color: #000;
+      margin: 40px 0 10px;
+      span{
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      input{
+        border: none;
+        background: transparent;
+        color: #000;
+        font-size: 12px;
+        width:200px;
+        height: 24px;
+        line-height:24px;
+        padding-left: 4px;
+        //@include pla-hol-style(#999,12);
+      }
+
+    }
+    .vercode{
+      width: 100%;
+      height:40px;
+      line-height: 40px;
+      overflow: hidden;
+      border-bottom: 1px solid #000;
+      margin-bottom: 10px;
+      display: none;
+      input{
+        width: 110px;
+        height: 20px;
+        line-height: 20px;
+        background: none;
+        border: none;
+        color: #000;
+        font-size: 12px;
+        float: left;
+        margin-top: 10px;
+        //letter-spacing: 6px;
+        //@include pla-hol-style(#999,12);
+      }
+      img{
+        display: block;
+        width: 100px;
+        height: 30px;
+        float: right;
+        margin-top: 5px;
+        cursor: pointer;
+        background-color: #fff;
+
+      }
+    }
+    .verificationCode{
+      border-bottom: 1px solid #000;
+      height: 40px;
+      line-height: 40px;
+      color: #000;
+      span{
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      input{
+        font-size: 12px;
+        background: transparent;
+        border: none;
+        color: #000;
+        width: 90px;
+        //@include pla-hol-style(#999,12);
+      }
+      #code_num{
+        padding-left: 4px;
+        cursor: not-allowed;
+      }
+      #getVerCode{
+        width: 100px;
+        font-size: 12px;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        padding-left: 5px;
+        margin: 0;
+        border-left: 1px solid #000;
+        //text-align: right;
+      }
+
+    }
+    .remind{
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      p{
+        text-align: center;
+        color: #ed2323;
+        font-size:12px;
+      }
+    }
+    #phone_login_btn{
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      background: transparent;
+      color: #000;
+      font-size: 16px;
+      border: 1px solid #000;
+      cursor: pointer;
+    }
+    .userAgreement{
+      height: 40px;
+      position: relative;
+      input{
+        display:block;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 50%;
+        margin-top: -6px;
+        left: 50%;
+        margin-left: -44px;
+      }
+      a{
+        display: block;
+        width: 56px;
+        height:20px;
+        line-height: 20px;
+        text-align: center;
+        color: #000;
+        font-size: 14px;
+        border-bottom: 1px solid #000;
+        position: absolute;
+        left: 50%;
+        top:50%;
+        margin-left: -28px;
+        margin-top: -10px;
+      }
+    }
+    .third-party{
+      overflow: hidden;
+      margin-bottom: 40px;
+      h1{
+        text-align: center;
+        font-size: 12px;
+        color: #000;
+        font-weight: 200;
+        height: 40px;
+        line-height: 40px;
+      }
+      &>div{
+        display: flex;
+        span{
+          width: 50px;
+          text-align: center;
+          color: #000;
+          font-size: 12px;
+          a{
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+          }
+        }
+        .qq a{
+          background:url("../images/user/qq.png?t=0407") no-repeat center;
+          background-size: 50px 50px;
+
+        }
+        .wx a{
+          background:url("../images/user/weixin.png?t=0407") no-repeat center;
+          background-size: 50px 50px;
+        }
+        .wb a{
+          background:url("../images/user/weibo.png?t=0407") no-repeat center;
+          background-size: 50px 50px;
+        }
+        span:not(:last-child){
+          margin-right: 57px;
+        }
+      }
+
+    }
+    #login-close{
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url("../images/login_close.png") no-repeat center;
+      background-size: 16px 16px;
+      cursor: pointer;
+    }
+  }
+}

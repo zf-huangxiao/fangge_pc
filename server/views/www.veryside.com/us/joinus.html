@@ -1,0 +1,33 @@
+<%# helper/header.html %>
+<%# component/nav2.html %>
+<div class="body-wrapper">
+    <div class="title">
+        <ul>
+            <li><a href="/aboutus/">关于我们</a></li>
+            <li><a href="/contactus/">联系我们</a></li>
+            <li class="active">作者招募</li>
+            <li><a href="/feedback/">反馈建议</a></li>
+            <li><a href="/useragreement/">用户协议</a></li>
+            <%if(this.indexlist.friend_link instanceof Array && this.indexlist.friend_link.length >0 ){%>
+            <li><a href="/friends/">友情链接</a></li>
+            <%}%>
+        </ul>
+    </div>
+    <i class="line"></i>
+    <div class="content">
+
+        <ul>
+            <li class="li_join">
+                <p>VerySide不止是一个有格调的时尚媒体，我们更希望能作为一个朋友认识同样有型有趣的你。</p>
+                <p>如果你平时也被当作身边公认的时髦星人，或是对穿衣搭配、美妆香氛、家居美食等任何时尚生活领域有着狂热爱好与独到见解，又碰巧有一颗热衷写作与分享的心，欢迎你来VerySide与大家一起聊聊时尚。如果你周围有这样的朋友，也请慷慨地介绍我们认识。当然，我们会对被采用的优质内容予以回报，你更有可能成为特约编辑在这里拥有专属于自己的个人主页，一起用好品位来影响身边的世界吧!
+                </p>
+                <p>投稿稿件请传送至: hello@veryside.com,欢迎联系我们了解更多详情。</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<%# helper/footer1.html %>
+
+

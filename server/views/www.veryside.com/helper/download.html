@@ -1,0 +1,33 @@
+<div id="download">
+   
+    <a href="https://itunes.apple.com/cn/app/id1143000596?&mt=8">
+    </a>
+    <i></i>
+</div>
+<script type="text/javascript">
+    window.onload=function(){
+        var download=document.getElementById("download");
+        var close=download.getElementsByTagName("i")[0];
+        var strCookie=document.cookie;
+        if(strCookie){
+            var time1=document.cookie.split(";")[0].split("=")[1];
+            var time2=new Date().getTime();
+            if(time2-time1>=12*3600*1000){
+                download.style.display="block";
+            }else{
+                download.style.display="none";
+            }
+        }else{
+            download.style.display="block";
+        }
+        close.onclick=function(){
+            download.style.display="none";
+            var date=new Date();
+            var lastTime=new Date().getTime();
+            date.setTime(date.getTime()+7*24*3600*1000);
+            document.cookie="lastClose="+escape(lastTime)+";expires="+date.toGMTString()
+        }
+
+    }
+
+</script>

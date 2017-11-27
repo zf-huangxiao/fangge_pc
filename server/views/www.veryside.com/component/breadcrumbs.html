@@ -1,0 +1,12 @@
+<%if(this.indexlist.breadcrumbs&&this.indexlist.breadcrumbs instanceof Array){ var crumbs=this.indexlist.breadcrumbs%>
+<p class="breadcrumbs">
+    <% crumbs.forEach(function(crumb,index){%>
+    <%if(index==crumbs.length-1){%>
+    <a target="_self" href="javascript:;"><%= crumb.title%></a>
+    <%}else{%>
+    <a href="<%= crumb.url%>"><%= crumb.title%></a>
+    <%}%>
+
+    <%})%>
+</p>
+<%}%>

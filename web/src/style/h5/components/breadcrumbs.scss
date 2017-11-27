@@ -1,0 +1,39 @@
+.breadcrumbs{
+  display: none;
+  width: 700px;
+  font-size: 14px;
+  margin-top: 30px;
+  a{
+    display: inline;
+    font-size: inherit;
+    color:#000000;
+  }
+  a:first-child~a{
+    &:before{
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      content: '';
+      border-top: 1px solid #000;
+      border-right: 1px solid #000;
+      margin-right: 10px;
+      margin-bottom: 2px;
+      -webkit-transform: rotateZ(45deg);
+      -moz-transform: rotateZ(45deg);
+      -ms-transform: rotateZ(45deg);
+      -o-transform: rotateZ(45deg);
+      transform: rotateZ(45deg);
+      -webkit-transform-origin: 50% 50%;
+      -moz-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+      -o-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+
+    }
+
+  }
+  a:last-child{
+    cursor: default;
+    display: none;
+  }
+}

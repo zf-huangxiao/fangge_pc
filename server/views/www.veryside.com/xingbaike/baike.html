@@ -1,0 +1,191 @@
+<%# helper/header.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+    <% if(this.indexlist){ var focus=this.indexlist.focus; %>
+    <div id="content_top">
+        <div class="swiper-top-banner">
+            <div class="swiper-wrapper">
+
+                <% if(focus&&focus.length>0&&focus instanceof Array){ %>
+                <% focus.forEach(function(info,index){ %>
+                <div class="swiper-slide">
+                    <a href="<%= info.url %>">
+                        <img src="<%= info.thumb %>" alt="<%= info.title%>">
+                        <h2>
+                            <span><%= info.title||''%></span>
+                            <span><%= info.title1||''%></span>
+                        </h2>
+                    </a>
+                </div>
+                <% }) %>
+                <% } %>
+            </div>
+            <div class="top-banner-pagination"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+        </div>
+
+        <%if(this.indexlist.wiki){ var wiki = this.indexlist.wiki;%>
+        <div id="menu">
+            <%if(wiki.list instanceof Array && wiki.list.length > 0){ var lists = wiki.list;%>
+            <h1>菜单</h1>
+            <ul class="first-list">
+                <% lists.forEach(function(cur,index){%>
+                <li>
+
+                    <%if(cur.url != undefined){%>
+                    <a  class="arrow" href="<%= cur.url||'javascript:;'%>"><%= cur.title||''%></a>
+                    <%}else if(cur.list instanceof Array && cur.list.length > 0){ var lists = cur.list;%>
+                    <a class="arrow" href="javascript:;" target="_self"><%= cur.title||''%></a>
+                    <div class="second-list">
+                        <h2><%= cur.title||''%></h2>
+                        <ul>
+                            <% lists.forEach(function(c,i){%>
+                            <li>
+                                <a href="<%= c.url||'javascript:;'%>"><%= c.title%></a>
+                            </li>
+                            <%})%>
+                        </ul>
+
+                    </div>
+                    <%}%>
+
+                </li>
+                <%})%>
+            </ul>
+            <%}%>
+        </div>
+        <%if(wiki.new instanceof Array && wiki.new.length > 0){ var news = wiki.new;%>
+        <div id="new">
+            <h1>
+                最新
+                <a href="/baike/s2.html">查看全部</a>
+            </h1>
+            <% news.forEach(function(cur,index){%>
+            <div>
+                <a class="pic" href="<%= cur.url||'javascript:;'%>">
+                    <img src="<%= cur.pc_picture%>" alt="<%= cur.title||''%>">
+                </a>
+
+                <p>
+                    <a href="<%= cur.url||'javascript:;'%>">
+                        <span><%= cur.etitle||''%></span>
+                        <span><%= cur.title||''%></span>
+                    </a>
+                </p>
+            </div>
+            <%})%>
+
+        </div>
+        <%}%>
+        <%if(wiki.love instanceof Array && wiki.love.length > 0){ var loves = wiki.love;%>
+        <div id="love">
+            <h1>
+                最受喜欢
+                <a href="/baike/s1.html">查看全部</a>
+            </h1>
+            <% loves.forEach(function(cur,index){%>
+            <div>
+                <a class="pic" href="<%= cur.url||'javascript:;'%>">
+                    <img src="<%= cur.pc_picture%>" alt="<%= cur.title||''%>">
+                </a>
+                <p>
+                    <a href="<%= cur.url||'javascript:;'%>">
+                        <span><%= cur.etitle||''%></span>
+                        <span><%= cur.title||''%></span>
+                    </a>
+
+                </p>
+            </div>
+            <%})%>
+
+
+        </div>
+        <%}%>
+
+        <%}%>
+    </div>
+    <%}%>
+    <%# component/advertWeixin.html %>
+    <% if(this.indexlist){ var topics = this.indexlist.topic;%>
+    <div id="recommend_jinpin">
+        <h1>
+            精选集推荐
+            <a href="/baike/jingxuanji/">查看全部</a>
+        </h1>
+        <%if(topics instanceof Array && topics.length>0){%>
+        <ul>
+            <%topics.forEach(function(cur,index){%>
+            <li>
+                <a class="pic" href="<%= cur.url||'javascript:;' %>">
+                    <img src="<%= cur.picture2 %>" alt="">
+                </a>
+                <a class="down" href="<%= cur.url||'javascript:;' %>">
+                    <span class="desc" ><%= cur.description||''%></span>
+                    <span class="go">
+                        <%= cur.title%>
+                    </span>
+                </a>
+            </li>
+            <%})%>
+        </ul>
+        <%}%>
+
+    </div>
+    <%}%>
+    <% if(this.indexlist.recommend){ var recommends = this.indexlist.recommend;%>
+    <div id="found_baike">
+        <div class="content">
+            <h1>发现型百科</h1>
+            <% if(recommends instanceof Array && recommends.length>0){%>
+            <ul>
+                <% recommends.forEach(function(cur,index){%>
+                <li>
+                    <a  class="pic" href="<%= cur.url%>">
+                        <img src="<%= cur.pc_picture%>" alt="<%= cur.title||''%>">
+                    </a>
+                    <a class='pic_des' href="<%= cur.url%>">
+                        <span><%= cur.title%></span>
+                    </a>
+                </li>
+                <%})%>
+            </ul>
+            <%}%>
+        </div>
+    </div>
+    <%}%>
+    <%# component/morelists.html%>
+</div>
+
+<%# component/footer.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer1.html %>
+<script id="j-tmpl-newlist" type="text/template">
+    {{ for(var i = 0; i < it.list.length; i++){ }}
+
+    <div data-time="{{=it.list[i].time}}">
+        <a class="lista" href="{{= it.list[i].url}}">
+
+            <div  class="list-img pic">
+                <img  src="{{= it.list[i].thumb }}" alt="">
+            </div>
+
+        </a>
+
+        <div class="list-desc">
+            <p class="article-tag">
+                <a href="{{= it.list[i].tag.url }}">{{= it.list[i].tag.title }}</a>
+            </p>
+            <h3 class="list-title"><a href="{{= it.list[i].url }}">{{=it.list[i].title }}</a></h3>
+            <div class="list-author" >
+                <a class="name" href="{{= it.list[i].author.url}}">{{= it.list[i].author.nickname}}</a>
+                <span>{{= it.list[i].timeStr}}</span>
+            </div>
+
+        </div>
+    </div>
+
+    {{ } }}
+</script>

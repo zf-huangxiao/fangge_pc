@@ -1,0 +1,288 @@
+<%if(!this.indexlist || this.indexlist.length==0){%>
+<%# helper/404.html %>
+<%}else{%>
+<%# helper/headerarticle.html %>
+<%# component/nav.html %>
+<div class="body-wrapper">
+    <% if(this.indexlist && this.indexlist != null && typeof(this.indexlist) != undefined && JSON.stringify(this.indexlist) !='{}'      ){ %>
+    <div class="top-pic">
+        <a href="<%= this.indexlist.info.picture_url%>">
+            <img src="<%= this.indexlist.info.thumb %>" alt=""/>
+        </a>
+    </div>
+    <div class="article-container">
+        <div class="article-wrapper">
+            <%# component/breadcrumbs.html %>
+            <% if(this.indexlist.topic&&Object.prototype.toString.call(this.indexlist.topic)=='[object Object]'){ %>
+            <p class="article-tag pd-35">
+                <a href="<%= this.indexlist.topic.url%>"><%= this.indexlist.topic.title %></a>
+                <a href="javascript:;" onclick="document.documentElement.scrollTop=document.getElementById('comments').offsetTop;document.body.scrollTop=document.getElementById('comments').offsetTop;" target="_self" class="comments-num"><%= this.indexlist.info.comment||""%></a>
+            </p>
+            <% } %>
+
+            <% if(this.indexlist.info&&Object.prototype.toString.call(this.indexlist.info)=='[object Object]'){ var info=this.indexlist.info%>
+            <h1 class="article-title pd-35">
+                <%= this.indexlist.info.title %>
+            </h1>
+            <%}%>
+            <div class="author_fengxiang">
+                <div class="author pd-35">
+                    <a href="<%= this.indexlist.author.url %>" class="">
+                    <%= this.indexlist.author.nickname%>
+                </a>
+                    <span class="time">
+                    <%= this.indexlist.info.date%>
+                 </span>
+                </div>
+            </div>
+            <%# component/share.html%>
+            <!--以下为内容-->
+            <div class="article-content">
+                <%= this.indexlist.info.contents ? this.indexlist.info.contents : '<div class="no-article">精彩内容稍后呈上...</div>' %>
+            </div>
+            <div class="bdsharebuttonbox fengxiang2">
+                <!--<i>分享到：</i>-->
+                <a href="#" class="bds_qzone" data-cmd="qzone" data-tag="share-1" title="分享到QQ空间"></a>
+                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                <!--<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>-->
+                <a href="#" class="bds_weixin wx_py" data-cmd="weixin" title="分享到微信"></a>
+                <a href="#" class="bds_weixin wx_pyq" data-cmd="weixin" title="分享到朋友圈"></a>
+                <!--<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>-->
+                <a href="#" class="bds_more" data-cmd="more"></a>
+            </div>
+
+            <%if(this.indexlist && typeof(this.indexlist.author)=='object'){var author=this.indexlist.author%>
+            <div class="article-author">
+                <img class="author_pic" src="<%= author.thumb||''%>" alt="作者头像">
+                <a class="author_name" href="<%= author.url||''%>"><%= author.nickname||''%></a>
+                <a class="author_identity"><%= author.identity||'方格编辑'%></a>
+                <a class="author_page" href="<%= author.url||'' %>">主页</a>
+
+            </div>
+            <%}%>
+        </div>
+        <div id="comments">
+            <div class="comments-login">
+                <a class="comment-login-btn" href="javascript:;" target="_self">登录</a>
+                <a  class="comments-login-wb" target="_self" href="javascript:;" onclick="document.getElementById('wb_login').click()"></a>
+                <a  class="comments-login-wx" target="_self" href="javascript:;" onclick="document.getElementById('wx_login').click()"></a>
+                <a  class="comments-login-qq" target="_self" href="javascript:;" onclick="document.getElementById('qq_login').click()"></a>
+                <span>快速登录:</span>
+            </div>
+            <div class="welcomeuser">你好，
+                <span><%=this.user_info.nickname||""%></span>
+            </div>
+            <textarea name="" id="comments-input" cols="30" rows="10" placeholder="评论..."></textarea>
+            <div class="comments-publish">
+                <input type="button" value="发表">
+            </div>
+            <% if(this.indexlist.comment && this.indexlist.comment instanceof Array){ var comment=this.indexlist.comment;%>
+            <div class="comments-lists" temId="j-tmpl-commentslist">
+                <p id="comments-user-avatar" style="display: none;"><%= this.user_info.avatar||""%></p>
+                <p id="comments-user-nickname" style="display: none;"><%= this.user_info.nickname||""%></p>
+                <h1>
+                    评论(<span><%= this.indexlist.info.comment||""%></span>)
+                </h1>
+                <% if(comment.length>0){%>
+                <%comment.forEach(function(cur,index){%>
+                <div>
+                    <img class="avatar" src="<%= cur.avatar ||'/style/h5/images/model_comment.png'%>" alt="头像">
+                    <div class="action-btn" uid="<%= cur.uid||''%>">
+                        <span class="reply">回复</span>
+                        <span class="del">删除</span>
+                    </div>
+                    <%if(cur.reply && cur.reply.contents){%>
+                    <div class="responder" comment_id="<%= cur.id||''%>">
+                        <span class="name"><%= cur.nickname||"方格用户"%></span>
+                        <span class="time"><%= cur.time||""%></span>
+                        <p class="response-text"><%= cur.contents||""%></p>
+                    </div>
+                    <div class="reviewer">
+                        <span class="name"><%= cur.reply.nickname||"方格用户"%></span>
+                        <!--<span class="time"><%= cur.time||""%></span>-->
+                        <p class="reviewer-text"><%= cur.reply.contents||""%></p>
+                    </div>
+                    <%}else{%>
+
+                    <div class="reviewer noresponse" comment_id="<%= cur.id||''%>">
+                        <span class="name"><%= cur.nickname||"方格用户"%></span>
+                        <span class="time"><%= cur.time||""%></span>
+                        <p class="reviewer-text"><%= cur.contents||""%></p>
+                    </div>
+                    <%}%>
+                </div>
+                <%})%>
+                <%}%>
+
+            </div>
+            <%}%>
+            <%if(this.indexlist.comment instanceof Array && this.indexlist.comment.length == 0){%>
+            <div class="nocomment">
+                暂无，来分享看法吧!
+            </div>
+            <%}%>
+
+            <%if(this.indexlist.comment instanceof Array && parseInt(this.indexlist.info.comment)/10 > 1){%>
+            <div class="comments-checkMore">
+                <a class="msg load-more-comments-msg active" id="comments-checkMore-btn" href="javascript:;" target="_self">
+                    <span class="more-btn">查看更多评论</span>
+                </a>
+                <div class="msg comments-loading">
+                    加载中
+                    <div></div>
+                </div>
+                <div class="msg comments-no-data">没有更多评论了</div>
+            </div>
+            <%}%>
+
+
+        </div>
+        <div class="advertContainer_right fixedR">
+            <div class="publicNum">
+                <%if(this.indexlist.ad && typeof(this.indexlist.ad)=='object'){var ad = this.indexlist.ad%>
+                <a href="<%= ad.url%>">
+                    <img src="<%= ad.thumb||''%>" alt="<%= ad.title||'微信公众号'%>">
+                </a>
+                <%}%>
+            </div>
+            <h3>最受欢迎</h3>
+            <div class="small-swiper">
+                <% if(this.indexlist.right && this.indexlist.right instanceof Object){var right=this.indexlist.right%>
+                <%if(right.recommend instanceof Array&&right.recommend.length>0){var lists=right.recommend;%>
+                <div class="swiper-wrapper">
+                    <% lists.forEach(function(cur,index){%>
+                    <div class="swiper-slide">
+                        <a href="<%= cur.url||''%>">
+                            <img src="<%= cur.thumb||''%>" alt="<%= cur.title||''%>">
+                        </a>
+                    </div>
+                    <%})%>
+                </div>
+
+                <div class="slideDesc">
+                    <% lists.forEach(function(cur,index){%>
+                    <p class="<%= index==0?'currentP':''%>"><%=cur.title||''%></p>
+                    <%})%>
+                </div>
+                <%}%>
+                <%}%>
+                <div class="swiper-pagination small-swiperPagination"></div>
+            </div>
+            <%# component/motianlou.html %>
+        </div>
+
+    </div>
+
+
+
+    <div class="no-more"></div>
+    <% } %>
+
+</div>
+
+<div class="article_advert">
+    <span></span>
+</div>
+<div class="recommend">
+    <div class="recommend-line">
+        <em></em>
+        <span>相关推荐</span>
+    </div>
+    <div class="common-list-wrapper new-list-wrapper">
+
+        <div class="content-list">
+
+            <% if(this.indexlist.recommend&&this.indexlist.recommend instanceof Array){ var lists = this.indexlist.recommend; %>
+            <% lists.forEach(function(info,index){ %>
+            <div data-time="<%= info.time%>">
+                <a class="lista pic" href="<%= info.url %>" >
+
+                    <div  class="list-img pic">
+                        <img  src="<%= info.thumb %>" alt="">
+                    </div>
+
+                </a>
+
+                <div class="list-desc">
+                    <p class="article-tag">
+                        <a href="<%= info.tag.url %>"><%= info.tag.title %></a>
+                    </p>
+                    <h3 class="list-title"><a href="<%= info.url%>"><%= info.title %></a></h3>
+                    <div class="list-author" >
+                        <a class="name" href="<%= info.author.url%>"><%= info.author.nickname%></a>
+                        <span><%= info.timeStr%></span>
+                    </div>
+                </div>
+
+            </div>
+            <% }) %>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+
+<%# component/morelists.html%>
+<%# component/login-pop-layer.html%>
+<%# component/footer.html%>
+<%# component/return_top.html%>
+<%# helper/footer1.html %>
+
+<script id="j-tmpl-newlist" type="text/template">
+                {{ for(var i = 0; i < it.list.length; i++){ }}
+
+                <div data-time="{{=it.list[i].time}}">
+                    <a class="lista" href="{{= it.list[i].url}}">
+
+                        <div  class="list-img pic">
+                            <img  src="{{= it.list[i].thumb }}" alt="">
+                        </div>
+
+                    </a>
+
+                    <div class="list-desc">
+                        <p class="article-tag">
+                            <a href="{{= it.list[i].tag.url }}">{{= it.list[i].tag.title }}</a>
+                        </p>
+                        <h3 class="list-title"><a href="{{= it.list[i].url }}">{{=it.list[i].title }}</a></h3>
+                        <div class="list-author" >
+                            <a class="name" href="{{= it.list[i].author.url}}">{{= it.list[i].author.nickname}}</a>
+                            <span>{{= it.list[i].timeStr}}</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                {{ } }}
+</script>
+<script id="j-tmpl-commentslist" type="text/template">
+    {{~it.list:value:index}}
+    <div>
+        <img class="avatar" src="{{= value.avatar||'' }}" alt="">
+        <div class="action-btn" uid="{{= value.uid }}">
+            <span class="reply">回复</span>
+            <span class="del">删除</span>
+        </div>
+        {{? value.reply && value.reply.contents }}
+        <div class="responder" comment_id="{{=  value.id||'' }}">
+            <span class="name">{{= value.nickname||"方格用户" }}</span>
+            <span class="time">{{= value.time||'' }}</span>
+            <p class="response-text">{{= value.contents||'' }}</p>
+        </div>
+        <div class="reviewer">
+            <span class="name">{{= value.reply.nickname||'' }}</span>
+            <p class="reviewer-text">{{= value.reply.contents||'' }}</p>
+        </div>
+        {{??}}
+        <div class="reviewer noresponse" comment_id="{{= value.id}}">
+            <span class="name">{{= value.nickname||'' }}</span>
+            <span class="time">{{= value.time||'' }}</span>
+            <p class="reviewer-text">{{= value.contents||''}}</p>
+        </div>
+        {{?}}
+    </div>
+
+    {{~}}
+</script>
+
+<%}%>

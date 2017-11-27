@@ -1,0 +1,69 @@
+<%# helper/header.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+    <%# component/breadcrumbs.html %>
+    <%if(this.indexlist){var lists=this.indexlist.list%>
+    <div class="content">
+        <h1><%= this.indexlist.seo.h1%></h1>
+        <ul>
+            <%if(lists &&lists instanceof Array&&lists.length>0){%>
+
+            <%lists.forEach(function(list,index){%>
+            <li>
+                <a href="<%= list.url%>" class="pic">
+                    <img src="<%= list.img%>" alt="<%= list.etitle%>">
+                </a>
+                <p>
+                    <a href="<%= list.url%>" class="desc">
+                        <%if(list.etitle.length>0){%>
+                        <i><%= list.etitle%></i>
+                        <%}%>
+                        <%if(list.title){%>
+                        <i><%= list.title%></i>
+                        <%}%>
+                    </a>
+                </p>
+            </li>
+
+            <%})%>
+            <%}%>
+        </ul>
+    </div>
+    <%}%>
+
+    <%# component/morelists.html%>
+</div>
+
+<%# component/footer.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer1.html %>
+<script id="j-tmpl-newlist" type="text/template">
+    {{ for(var i = 0; i < it.list.length; i++){ }}
+
+    <div data-time="{{=it.list[i].time}}">
+        <a class="lista" href="{{= it.list[i].url}}">
+
+            <div class="list-img pic">
+                <img src="{{= it.list[i].thumb }}" alt="">
+            </div>
+
+        </a>
+
+        <div class="list-desc">
+            <p class="article-tag">
+                <a href="{{= it.list[i].tag.url }}">{{= it.list[i].tag.title }}</a>
+            </p>
+            <h3 class="list-title"><a href="{{= it.list[i].url }}">{{=it.list[i].title }}</a></h3>
+            <div class="list-author" >
+                <a class="name" href="{{= it.list[i].author.url}}">{{= it.list[i].author.nickname}}</a>
+                <span>{{= it.list[i].timeStr}}</span>
+            </div>
+
+        </div>
+    </div>
+
+    {{ } }}
+</script>
+

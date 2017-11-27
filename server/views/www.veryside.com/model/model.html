@@ -1,0 +1,129 @@
+<%if(!this.indexlist || this.indexlist.length==0){%>
+<%# helper/404.html %>
+<%}else{%>
+<%# helper/headerarticle.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+    <%if(this.indexlist.info){ var info=this.indexlist.info%>
+    <div class="staticWidth_con">
+        <%# component/breadcrumbs.html %>
+        <div class="person_int">
+
+            <div class="top_pic">
+                <img src="<%=info.thumb||''%>" alt="<%= info.name||''%>">
+                <div class="top_title">
+                    <span class="tag"> 型客计划No.<%= info.index||''%></span>
+                    <span class="logo"></span>
+                    <span class="close"></span>
+                    <span class="name"><%=info.name||'' %></span>
+
+                    <div class="bdsharebuttonbox">
+                        <i>分享到：</i>
+                        <a href="#" class="bds_qzone" data-cmd="qzone" data-tag="share-1" title="分享到QQ空间"></a>
+                        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                        <!--<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>-->
+                        <a href="#" class="bds_weixin wx_py" data-cmd="weixin" title="分享到微信"></a>
+                        <a href="#" class="bds_weixin wx_pyq" data-cmd="weixin" title="分享到朋友圈"></a>
+                        <!--<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>-->
+                        <!--<a href="#" class="bds_more" data-cmd="more"></a>-->
+                    </div>
+                </div>
+                <div class="top_desc">
+                    <p>
+                        <%= info.guide||''%>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="person_show">
+            <div class="title">
+                <span><%= info.imgs_title||''%></span>
+            </div>
+            <div class="pictures container-fluid" id="masonry">
+                <%if(info.pictures&& info.pictures instanceof(Array)&&info.pictures.length>0){var pictures=info.pictures;%>
+                <%pictures.forEach(function(cur,index){%>
+                <div class="picture box">
+                    <img src="<%= cur.src||''%>" alt="<%= cur.brand||''%>">
+                    <div class="match">
+                        <div class="match_inner">
+                            <h1><%= cur.brand||''%></h1>
+                            <p><%= cur.match%></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <%})%>
+                <%}%>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="person_life">
+        <div class="title">
+            <%if(info.qa_title.indexOf('(')){%>
+            <span><%= info.qa_title.replace('(','<br>(')%></span>
+            <%}else{%>
+            <span><%= info.qa_title||''%></span>
+            <%}%>
+        </div>
+        <div class="q_a">
+            <div class="mCustomScrollbar">
+                <%= info.contents||''%>
+            </div>
+        </div>
+    </div>
+    <div class="person_goods">
+        <div class="title">
+            <span><%= info.item_title||''%></span>
+        </div>
+        <div class="swiper-goods">
+            <div class="swiper-wrapper">
+
+                <% if(info.goods){ var goods = info.goods %>
+                <% goods.forEach(function(cur,index){ %>
+                <div class="swiper-slide">
+                    <a class="pic" href="<%= cur.url %>">
+                        <img src="<%= cur.src||''%>" alt="<%= cur.title||''%>">
+                    </a>
+                    <a class="des" href="<%= cur.src||''%>"><%= cur.title||''%></a>
+                    <%if(cur.price){%>
+                    <p class="price">售价约：<%= cur.price%> RMB</p>
+                    <%}%>
+                    <%if(cur.url){%>
+                    <a class="buy" href="<%= cur.url%>">
+                        立即购买
+                    </a>
+                    <%}%>
+                </div>
+                <% }) %>
+                <% } %>
+            </div>
+        </div>
+        <div class="swiper-button-prev "></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <%}%>
+    <div class="planner">
+        <div class="title">
+            <span>本期策划</span>
+        </div>
+        <%if(info.detail){%>
+        <div class="workers">
+            <%= info.detail%>
+        </div>
+        <%}%>
+        <%if(this.indexlist.more){var more=this.indexlist.more;%>
+        <a href="<%= more.url||'javascript:;'%>"><%= more.title||''%></a>
+        <%}%>
+
+    </div>
+</div>
+
+<%# component/footer.html%>
+<%# component/return_top.html%>
+<%# helper/footer1.html %>
+<%}%>

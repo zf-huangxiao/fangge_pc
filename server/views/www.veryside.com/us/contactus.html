@@ -1,0 +1,35 @@
+<%# helper/header.html %>
+<%# component/nav2.html %>
+<div class="body-wrapper">
+    <div class="title">
+        <ul>
+            <li><a href="/aboutus/">关于我们</a></li>
+            <li class="active">联系我们</li>
+            <li><a href="/joinus/">作者招募</a></li>
+            <li><a href="/feedback/">反馈建议</a></li>
+            <li><a href="/useragreement/">用户协议</a></li>
+
+            <%if(this.indexlist.friend_link instanceof Array && this.indexlist.friend_link.length >0 ){%>
+            <li><a href="/friends/">友情链接</a></li>
+            <%}%>
+        </ul>
+    </div>
+    <i class="line"></i>
+    <div class="content">
+
+        <ul>
+            <li class="li_contact">
+                <p>
+                    如果你有任何问题和建议，或是喜欢VerySide想和我们聊聊，欢迎通过以下方式关注或联系我们(周一到周五 办公时间:09:30-18:30)
+                </p>
+                <p>微信订阅号: veryside</p>
+                <p>邮箱: hello@veryside.com</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<%# helper/footer1.html %>
+
+

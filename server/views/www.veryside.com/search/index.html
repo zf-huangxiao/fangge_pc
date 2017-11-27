@@ -1,0 +1,37 @@
+<%# helper/header.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+    <div class="search-main-wrapper <%= this.isDefault == 0?'':'afterSearch'%>">
+        <div class="search-main">
+            <input class="search-input" id="search-input" placeholder="请输入搜索内容"  value="<%= this.isDefault == 1 ? this._searchKeyword : '' %>" type="text">
+            <span class="search-placeholdder">请输入搜索内容</span>
+            <a target="_self" class="search-btn" id="search-btn" href="javascript:;"></a>
+        </div>
+        <%# component/search-tmpl.html%>
+    </div>
+    <div class="search-content-wrapper">
+
+        <% if(this.isDefault == 0){ %>
+
+            <%# component/search-default.html%>
+
+        <% }else{ %>
+
+            <%# component/search-result.html%>
+
+        <% } %>
+
+    </div>
+    <%# component/motianlou.html %>
+
+    <% if(this.isDefault == 1 && this.searchresult.list.length > 0 ){ %>
+    <%# component/load_more.html%>
+    <% } %>
+</div>
+
+<%# component/footer.html%>
+<%# helper/footer1.html %>
+
+
+

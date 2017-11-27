@@ -1,0 +1,91 @@
+<%# helper/header.html %>
+<% if(!this.photolist.list||this.photolist.list.length==0){%>
+<div style="width:100%;height: 100%;background: #FFFFFF;text-align: center;padding-top: 300px;">
+    抱歉，此文暂无配图...
+</div>
+<%}else{%>
+<div class="top-menu-bar">
+    <a  href="/" class="logo" >
+        <img src="/assets/images/m-header-logo-white.png" alt="到VerySide首页">
+    </a>
+    <a target="_self" href="<%= this.photolist.news.url?this.photolist.news.url:'javascript:;' %>" class="back">
+        <span>返回文章</span>
+        <%= this.photolist.news.title%>
+    </a>
+    <% if(this.photolist){ var news=this.photolist.news, lists= this.photolist.list; %>
+    <div class="desc">
+        <% if(lists instanceof Array && lists.length>0){%>
+        <% lists.forEach(function(list,index){%>
+        <%if(index+1 == this.photolist.p){%>
+        <%= list.title%>
+        <%}%>
+        <%})%>
+        <%}%>
+    </div>
+    <%}%>
+</div>
+<div class="container">
+    <% if(this.photolist){ var news=this.photolist.news, lists= this.photolist.list; %>
+    <div class="thumb_box">
+        <div class="close"></div>
+        <div class="thumbnail">
+            <i></i>查看缩略图
+        </div>
+        <div class="thumbnail1">
+            <i></i>
+        </div>
+        <div class="tool">
+            <span><%= this.photolist.p%> </span>
+            <span>/<%= this.photolist.total%></span>
+        </div>
+        <div class="tool1">
+            <span><%= this.photolist.p%></span>
+            <span>&nbsp;of&nbsp;<%= this.photolist.total%></span>
+        </div>
+    </div>
+    <%if(lists instanceof Array&&lists.length>0){%>
+    <div class="thumbnails">
+        <div class="thumbnails_outer">
+            <% lists.forEach(function(list,index){%>
+            <div>
+                <img id="<%= list.id%>" class="<%= index+1 == this.photolist.p ? 'active':'' %>" src="<%= list.src%>" alt="">
+                <div style="
+            display: none" class="pic_title"><%= list.title?list.title:''%></div>
+            </div>
+            <%})%>
+        </div>
+    </div>
+    <%}%>
+    <div class="photo">
+        <% if(lists instanceof Array && lists.length>0){%>
+        <% lists.forEach(function(list,index){%>
+        <%if(index+1 == this.photolist.p){%>
+        <img src="<%= list.src%>" alt="">
+        <span class="arrowLeft <%= index==0?'notshow':''%>"></span>
+        <span class="arrowRight"></span>
+        <%}%>
+        <%})%>
+        <%}%>
+
+        <div class="nomore">
+            <div>
+                <h1>已经没有了！</h1>
+                <div class="again">
+                    <i></i>
+                    <p>点击重新浏览</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="advert">
+        <p>←支持左右键翻页→</p>
+        <a href="/app/">
+            <img src="http://img.veryside.com/static/pc/rightad.jpg" alt="">
+        </a>
+    </div>
+    <%}%>
+</div>
+
+<%}%>
+
+<%# helper/footer.html %>

@@ -1,0 +1,50 @@
+<%
+var query = this._Request_url;
+if (!this.groupPg) this.groupPg = {};
+var total_num = this.groupPg.total_num,
+	current_page = parseInt(this.groupPg.current_page) - 1||0,
+	show_page_num = this.groupPg.page_num || 3;
+this.isLastPage = ((total_num - 1) == current_page);
+function getLink(page){
+	if (page<0 ) page = 0;
+	if (page >= total_num) page = total_num -1;
+	page = page + 1;
+	var url = '';
+	if(page == 1) {
+		url = query.replace(/p\d+\.html/, '');
+	} else {
+		if(!(/p\d+\.html/).test(query)) {
+			url = query + 'p' + page + '.html';
+		} else {
+			url = query.replace(/p\d+\.html/, 'p' + page + '.html');
+		}
+	}
+	return url;
+}
+if (total_num> 1 ){
+%>
+<div class="pageNav <%if (this.PGStyle_Flower){%>bgcnt<%}%>">
+	<a target="_self" class="pagePrev <%= current_page > 0 ? '' : 'disabled_page' %>" href="<%= current_page > 0 ? getLink(current_page-1) : 'javascript:;' %>">&nbsp;</a>
+	<%
+	var left_num = current_page>show_page_num ? current_page - show_page_num: 0 , right_num = left_num + show_page_num*2-1;
+	if ( right_num > total_num) right_num = total_num;
+	if (left_num >= 1){
+		%>
+		
+	<a target="_self" href="<%= getLink(0); %>"><%= 1%></a>
+	<i <%= left_num==1?"style='display:none;'":''%> >...</i>
+	<%	}
+	for (var i = left_num ;i < right_num;i++ ){
+
+	%>		
+		<a target="_self" <% if (current_page == i) { %> class="currentpage" <% } %> <%if(current_page != i){%>href="<%= getLink(i);%>"<%}%>><%= i+1%></a>
+	<% }
+	if (right_num < total_num) {
+	%>
+	<i style="<%= right_num+1==total_num?'display:none':''%>">...</i>
+	<a target="_self" href="<%= getLink(total_num); %>"><%= total_num%></a>
+	<% }
+	%>
+	<a target="_self" class="pageNext <%= current_page < total_num-1 ? '' : 'disabled_page' %>" href="<%= current_page < total_num-1 ? getLink(current_page+1) : 'javascript:;' %>">&nbsp;</a>
+</div>
+<% } %>

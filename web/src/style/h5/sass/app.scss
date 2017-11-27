@@ -1,0 +1,168 @@
+@import '../storebase';
+@import '../components/nav';
+@import '../components/footer';
+
+.main-container{
+  width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+  .picture{
+    width: 260px;
+    height: 520px;
+    background: url("../images/guidepic/ipone.png?0313") no-repeat center;
+    background-size: contain;
+    margin:67px 120px 67px 0 ;
+    float: left;
+  }
+  .load{
+    float: left;
+    margin: 127px 0;
+    .logo{
+          margin-bottom: 40px;
+      i{
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        background: url("../images/guidepic/icon.png?0313") no-repeat center;
+        background-size: contain;
+        float: left;
+        margin-right:15px;
+
+      }
+      span{
+        display: inline-block;
+        height: 70px;
+        line-height: 70px;
+        font-size: 16px;
+      }
+    }
+    .desc{
+      div{
+         margin-bottom: 25px;
+        h1{
+          font-size: 16px;
+          color: #000;
+          margin-bottom: 10px;
+          font-weight: 100;
+          position: relative;
+          padding-left: 10px;
+          &::before{
+            @include solid-triangle();
+            left: -5px;
+          }
+        }
+        h2{
+          font-size: 14px;
+          color: #666;
+          padding-left: 10px;
+          font-weight: 100;
+        }
+      }
+    }
+    .address{
+      padding-top: 20px;
+      overflow: hidden;
+      a{
+        color: #000;
+        text-decoration: none;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        border:1px solid #000000;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        font-size: 14px;
+      }
+      .android{
+        width: 145px;
+        margin-right: 10px;
+        i{
+          font-style: normal;
+        }
+        i:nth-of-type(1){
+          display: inline-block;
+          width: 21px;
+          height: 23px;
+          background: url("../images/guidepic/android1.png") no-repeat 100%;
+          margin: 7px 8px 0 10px;
+          float: left;
+        }
+        i:nth-of-type(2){
+          font-family:Arial;
+        }
+      }
+      .android:hover{
+        background: #000;
+        color: #ffffff;
+        i:nth-of-type(1){
+          background: url("../images/guidepic/android2.png") no-repeat 100%;
+        }
+      }
+      .ios{
+        width: 154px;
+        i{
+          font-style: normal;
+        }
+        i:nth-of-type(1){
+          display: inline-block;
+          width: 21px;
+          height: 23px;
+          background: url("../images/guidepic/iOS1.png") no-repeat 100%;
+          margin: 7px 8px 0 6px;
+          float: left;
+        }
+        i:nth-of-type(2){
+          font-family: Arial;
+        }
+      }
+      .ios:hover{
+        background: #000;
+        color: #fff;
+        i:nth-of-type(1){
+          background: url("../images/guidepic/iOS2.png") no-repeat 100%;
+        }
+      }
+    }
+    .erweima{
+      display: none;
+      position: fixed;
+      z-index: 1000000;
+      top:0;
+      left: 0;
+      right: 0;
+      bottom:0;
+      background: rgba(0,0,0,.7);
+      .inner{
+        width: 364px;
+        height: 364px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -182px;
+        margin-left: -182px;
+        background: #ffffff;
+        h1{
+          font-size: 14px;
+          text-align: center;
+          margin-top: 43px;
+        }
+        div{
+          width: 240px;
+          height: 240px;
+          margin: 10px auto 0;
+          background: url("../../../assets/images/erweima.jpg") no-repeat center;
+          background-size: contain;
+        }
+        //.ios_downP{
+        //  background: url("../../../assets/images/erweima.jpg") no-repeat center;
+        //  background-size: 140px 140px;
+        //}
+        //.android_downP{
+        //  background: url("../../../assets/images/erweima.jpg") no-repeat center;
+        //  background-size: 140px 140px;
+        //}
+      }
+    }
+  }
+}

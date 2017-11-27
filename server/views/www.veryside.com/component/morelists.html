@@ -1,0 +1,40 @@
+<div class="recommend">
+    <div class="recommend-line">
+        <em></em>
+        <span>所有最新文章</span>
+    </div>
+    <div class="common-list-wrapper new-list-wrapper">
+
+        <div class="content-list" id="content-list" temId="j-tmpl-newlist">
+
+            <% if(this.indexlist.new){ var news = this.indexlist.new; %>
+            <% news.forEach(function(info,index){ %>
+            <div data-time="<%= info.time%>">
+                <a class="lista" href="<%= info.url %>">
+
+                    <div  class="list-img pic">
+                        <img  src="<%= info.thumb %>" alt="">
+                    </div>
+
+                </a>
+
+                <div class="list-desc">
+                    <p class="article-tag">
+                        <a href="<%= info.tag.url %>"><%= info.tag.title %></a>
+                    </p>
+                    <h3 class="list-title"><a href="<%= info.url %>"><%= info.title %></a></h3>
+                    <div class="list-author" >
+                        <a class="name" href="<%= info.author.url%>"><%= info.author.nickname%></a>
+                        <span><%= info.timeStr%></span>
+                    </div>
+
+                </div>
+
+            </div>
+            <% }) %>
+            <% } %>
+        </div>
+
+        <%# component/load_more.html%>
+    </div>
+</div>

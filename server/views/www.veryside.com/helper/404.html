@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>方格</title>
+	<style>
+		html{
+			overflow-y: scroll;
+		}
+		[data-dpr="2"] p, [data-dpr="3"] p,
+		[data-dpr="2"] div, [data-dpr="3"] div {
+			max-height: 100%;
+		}
+	</style>
+	<meta http="x-dns-prefetch-control" content="on" />
+	<!--<script src="/assets/js/flexible.js"></script>-->
+	<meta name="renderer" content="webkit" />
+	<style type="text/css">
+	html,body,div{
+		margin:0;
+		padding:0;
+	}
+	body {
+		background-color:#f2f0f0;
+		color:#666;
+		font-size:12px;
+		font-family:微软雅黑;
+	}
+	.error-404 {
+		height:260px;
+		width:100%;
+		margin:206px auto 0;
+
+		position:relative;
+		display:block;
+		background: url(/style/h5/images/404.png) no-repeat center;
+
+	}
+	h2{
+		font-size:21px;
+		width: 100%;
+		text-align: center;
+	}
+	p{
+		width: 100%;
+		text-align: center;
+		padding-top: 11px;
+	}
+	p a{
+		display: inline-block;
+		height: 20px;
+		line-height: 20px;
+		font-size: 16px;
+		color: #666;
+		text-decoration: none;
+		margin-right: 40px;
+	}
+	p i{
+		display: inline-block;
+		width: 22px;
+		height: 20px;
+
+	}
+		.home i{
+			background: url("/style/h5/images/guidepic/shouye.png") no-repeat center;
+			background-size:19px 20px;
+			float: left;
+			margin-right: 12px;
+		}
+		.lastStep i{
+			background:url("/style/h5/images/guidepic/fanhui.png") no-repeat center;
+			background-size:22px 14px;
+			float: left;
+			margin-right: 12px;
+		}
+	</style>
+</head>
+<body>
+<div class="error-404">
+</div>
+<h2>抱歉...您访问的页面不存在！</h2>
+<p>
+	<a class="home" href="/"><i></i>回首页</a>
+	<a class="lastStep" href="javascript:;" onclick="window.history.back()"><i></i>上一步</a>
+</p>
+<script type="text/javascript">
+//	setTimeout(function(){
+//		window.location.href = "/";
+//	}, 3000);
+</script>
+</body>
+</html>

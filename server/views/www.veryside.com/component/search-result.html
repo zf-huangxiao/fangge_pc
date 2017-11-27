@@ -1,0 +1,113 @@
+<% if(this.searchresult.list.length > 0){ %>
+    <div class="search-result" id="search-result" temId="j-tmpl-result">
+        <% if(this.searchresult){ var datas = this.searchresult; %>
+            <h3 class="<%= datas.top.type == 9 ? 'h-author':''%>">我们找到以下与"<span><%= this._searchKeyword?this._searchKeyword:'' %></span>"相关的内容。</h3>
+            <% if(datas.top && Object.prototype.toString.call(datas.top)=== '[object Object]' && datas.recommend.length==0){ %>
+            <%if(datas.top.type == 9){%>
+            <a class="result-top-pic result-author " href="<%= datas.top.url %>">
+
+                <img class="<%= datas.top.type == 7 ? 'jingxuanimg' : 'baikeimg' %>" src="<%= datas.top.thumb %>" alt="">
+                <p>
+                    <%if(datas.top.title){%>
+                    <i><%= datas.top.title%></i>
+                    <%}%>
+                    <%if(datas.top.etitle){%>
+                    <i><%= datas.top.etitle%></i>
+                    <%}%>
+                </p>
+            </a>
+            <%}else{%>
+            <a class="result-top-pic <%=datas.top.type == 9 ? 'result-author':''%>" href="<%= datas.top.url %>">
+
+                <img class="<%= datas.top.type == 7 ? 'jingxuanimg' : 'baikeimg' %>" src="<%= datas.top.thumb %>" alt="">
+                <p>
+                    <%if(datas.top.etitle){%>
+                    <i><%= datas.top.etitle%></i>
+                    <%}%>
+                    <%if(datas.top.title){%>
+                    <i><%= datas.top.title%></i>
+                    <%}%>
+                </p>
+            </a>
+            <%}%>
+            <% } %>
+
+            <div class="result-list" id="result-list" temId="j-tmpl-loadresult">
+                <% if(datas.list.length > 0){ var items = datas.list; %>
+                    <% items.forEach(function(info,index){ %>
+                    <section>
+                        <a class="lista" href="<%= info.url ? info.url : 'javascript:;' %>">
+                            <div class="list-img pic">
+                                <img src="<%= info.thumb %>" alt="">
+                            </div>
+                        </a>
+                        <p class="tag">
+                            <a href="<%= info.tag.url||''%>"><%= info.tag.title||''%></a>
+                        </p>
+                        <h3 class="list-desc">
+                            <a class="list-title" href="<%= info.url ? info.url : 'javascript:;'%>"><%= info.title %></a>
+                        </h3>
+                        <p class="time"><%= info.timeStr||''%></p>
+                    </section>
+                    <% }) %>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+<% }else if(this.searchresult.recommend.length > 0&&this.searchresult.list.length == 0){ var items = this.searchresult.recommend; %>
+
+    <% if( Object.prototype.toString.call(this.searchresult.top) === '[object Object]' &&this.searchresult.top.thumb.length>0){ var resultTop = this.searchresult.top; %>
+        <h3>我们找到以下与"<span><%= this._searchKeyword %></span>"相关的内容。</h3>
+        <a class="result-top-pic" href="<%= resultTop.url %>">
+
+            <img class="<%= resultTop.type == 7 ? 'jingxuanimg' : 'baikeimg' %>" src="<%= resultTop.thumb %>" alt="">
+            <p>
+                <%if(resultTop.etitle){%>
+                <i><%= resultTop.etitle%></i>
+                <%}%>
+                <%if(resultTop.title){%>
+                <i><%= resultTop.title%></i>
+                <%}%>
+            </p>
+        </a>
+    <% }else{ %>
+        <div class="no-search-result" id="no-search-result">
+            <p>抱歉，我们没有找到与 "<span class="no-tips" id="no-tips"><%= this._searchKeyword %></span>" 相关的内容。</p>
+        </div>
+    <% } %>
+
+    <div class="search-default" id="search-default">
+        <h1>你可能感兴趣</h1>
+        <div class="default-list" id="default-list" temId="j-tmpl-default">
+
+            <% items.forEach(function(info,index){ %>
+            <a class="column pic" href="<%= info.url %>">
+                <div>
+                    <img src="<%= info.thumb %>" alt="">
+                </div>
+                <h3><%= info.title %></h3>
+            </a>
+            <% }) %>
+
+        </div>
+    </div>
+<% } %>
+
+<script id="j-tmpl-loadresult" type="text/template">
+    {{ for(var i = 0; i < it.list.length; i++){ }}
+    <section>
+        <a class="lista" href="{{= it.list[i].url?it.list[i].url:'' }}">
+            <div class="list-img pic">
+                <img src="{{= it.list[i].thumb }}" alt="">
+            </div>
+        </a>
+        <p class="tag">
+            <a href="{{= it.list[i].tag.url||''}}">{{= it.list[i].tag.title||''}}</a>
+        </p>
+        <h3 class="list-desc">
+            <a class="list-title" href="{{= it.list[i].url?it.list[i].url:'' }}">{{= it.list[i].title?it.list[i].title:'' }}</a>
+        </h3>
+        <p class="time">{{= it.list[i].timeStr||''}}</p>
+    </section>
+    {{ } }}
+</script>

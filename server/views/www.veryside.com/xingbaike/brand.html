@@ -1,0 +1,64 @@
+<%# helper/header.html %>
+<%# component/nav.html %>
+<div class="body-wrapper">
+    <%# component/breadcrumbs.html %>
+    <% if(this.indexlist){ var brands=this.indexlist %>
+    <h1 class="brandsTitle">品牌A-Z</h1>
+    <div class="letters">
+        <ul>
+            <% brands.letters.forEach(function(brand,index){%>
+            <li><a href="<%= '#'+brand%>" target="_self"><%= brand%></a></li>
+            <%})%>
+        </ul>
+
+    </div>
+    <div class="logos">
+
+        <%if(brands.list){ var list=brands.list %>
+        <% if(list instanceof Object ){%>
+        <% for(var l in list){%>
+        <div id="<%= l%>">
+            <span class="letter"><%= l%></span>
+            <%if(list[l] instanceof Array&&list[l].length>0){ var lists=list[l] %>
+            <ul>
+                <%lists.forEach(function(l,i){%>
+                <li>
+                    <a href="<%= l.url %>" class="tooltip" data-tooltip-content="<%= l.title?'#'+l.title.replace(/ +/g,'').replace(/[^a-zA-Z]/g,''):''%>">
+                        <%= l.title%>
+                    </a>
+                </li>
+                <%})%>
+
+            </ul>
+
+            <%}%>
+
+
+        </div>
+        <%}%>
+        <%}%>
+        <%}%>
+
+    </div>
+    <div class="tooltip_templates" style="display: none">
+        <%if(brands.list){ var list=brands.list %>
+        <% if(list instanceof Object ){%>
+        <% for(var l in list){%>
+        <%if(list[l] instanceof Array&&list[l].length>0){ var lists=list[l] %>
+            <%lists.forEach(function(l,i){%>
+                <div id="<%= l.title?l.title.replace(/ +/g,'').replace(/[^a-zA-Z]/g,''):''%>">
+                    <img src="<%= l.thumb?l.thumb:''%>" alt="">
+                </div>
+            <%})%>
+        <%}%>
+        <%}%>
+        <%}%>
+        <%}%>
+    </div>
+    <%}%>
+
+</div>
+<%# component/footer.html%>
+<%# component/return_top.html%>
+<%# helper/footer1.html %>
+

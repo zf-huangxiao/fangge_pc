@@ -1,0 +1,50 @@
+<%# helper/header.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+    <% if(this.user_info && this.user_info.nickname != undefined){ %>
+    <div class="myInfo">
+        <h1>我的资料</h1>
+        <form action="">
+            <div class="avatar">
+                <span>头像</span>
+                <div class="pic">
+                    <img id="user_avatar" src="<%= this.user_info.avatar + '?' + Math.random()%>" alt="用户头像">
+                </div>
+                <span>
+                    <a href="javascript:;" target="_self">更换头像</a>
+                    <input type="file" name="file" id="upload_ava_file" size="1" accept="image/jpg,image/jpeg,image/png" style="display:none"/>
+                </span>
+            </div>
+            <div class="nickName">
+                <span>昵称</span>
+                <div>
+                    <input type="text" id="nickname" value="<%= this.user_info.nickname||'未知' %>" maxlength="15">
+                    <span class="warning">
+                    </span>
+                </div>
+            </div>
+            <div class="gender">
+                <span>性别</span>
+                <select name="" id="gender">
+                    <option value="男" <%= this.user_info.sex == '男' ? 'selected' : '' %> >男</option>
+                    <option value="女" <%= this.user_info.sex == '女' ? 'selected' : '' %> >女</option>
+                    <option value="未知" <%= this.user_info.sex == '未知' ? 'selected' : '' %> >未知</option>
+                </select>
+            </div>
+            <div class="birthday">
+                <span>生日</span>
+                <input type="text" id="birthday" value="<%= this.user_info.birthday ? this.user_info.birthday : '保密' %>" >
+            </div>
+            <div class="city">
+                <span>地区</span>
+                <input type="text" id="city" value="<%= this.user_info.area %>">
+            </div>
+            <input id="keep" type="button" value="保存">
+        </form>
+    </div>
+    <% }%>
+</div>
+<%# component/footer.html %>
+<%# helper/footer1.html %>
+

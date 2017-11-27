@@ -1,0 +1,35 @@
+<%# helper/header.html %>
+<%# component/nav2.html %>
+<div class="body-wrapper">
+    <div class="title">
+        <ul>
+            <li class="active">关于我们</li>
+            <li><a href="/contactus/">联系我们</a></li>
+            <li><a href="/joinus/">作者招募</a></li>
+            <li><a href="/feedback/">反馈建议</a></li>
+            <li><a href="/useragreement/">用户协议</a></li>
+            <%if(this.indexlist.friend_link instanceof Array && this.indexlist.friend_link.length >0 ){%>
+            <li><a href="/friends/">友情链接</a></li>
+            <%}%>
+        </ul>
+    </div>
+    <i class="line"></i>
+    <div class="content">
+
+        <ul>
+            <li class="li_about">
+                <p>
+                    VerySide是一个定位精致有格调、兼具有型有趣和方便好用的女性时尚资讯平台。我们原创、甄选新鲜优质的时尚讯息、推荐最值得入手的品牌和单品，从穿衣搭配到格调生活，用精粹好看的内容助你每天轻松提升品位。
+                </p>
+                <p>
+                    除了浏览VerySide网站和移动版网站，欢迎下载我们的APP--方格VerySide随时随地获取最新内容，也可以通过微信订阅号“VerySide”关注我们。
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<%# helper/footer1.html %>
+
+

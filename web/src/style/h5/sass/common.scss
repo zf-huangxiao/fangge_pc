@@ -1,0 +1,83 @@
+@import '../storebase';
+@import '../components/nav';
+@import '../components/swiper-min';
+@import '../components/footer';
+@import '../components/morelists';
+@import '../components/load-more';
+@import '../components/whitespace';
+@import '../components/return-top';
+@import '../components/breadcrumbs';
+
+$box-width:1100px;
+$bg:#f8f8f8;
+.body-wrapper{
+  width: $box-width;
+  margin: 0 auto 90px;
+  color: #000;
+  .content{
+    overflow: hidden;
+    padding-bottom: 60px;
+    h1{
+      width: 100%;
+      text-align: center;
+      font-size: 22px;
+      padding-top: 30px;
+    }
+    ul{
+      list-style: none;
+      overflow: hidden;
+      width: 100%;
+      li{
+        width: 346px;
+        float: left;
+        margin-top: 30px;
+        a{
+          display: block;
+          color: #000;
+          text-decoration: none;
+        }
+        a.pic{
+          width: 100%;
+          overflow:hidden;
+          img {
+            display: block;
+            width: 100%;
+            height: 195px;
+            border: none;
+          }
+        }
+        p{
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          a.desc{
+            display: inline;
+            font-size: 16px;
+            color: #000;
+            &:hover{
+              color: #999;
+            }
+            i{
+              font-style:normal;
+            }
+            i:nth-of-type(1){
+              //font-family: Charter;
+            }
+          }
+        }
+
+      }
+      li:not(:nth-of-type(3n)){
+         margin-right: 30px;
+      }
+    }
+
+  }
+
+}
+h1,h2,h3{
+  font-weight: 200;
+}

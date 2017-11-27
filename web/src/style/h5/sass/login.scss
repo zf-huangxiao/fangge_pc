@@ -1,0 +1,237 @@
+@import '../storebase';
+@import '../components/footer';
+@import '../components/nav';
+
+.body-wrapper{
+  margin: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top:60px;
+  background: url("../images/login_bg.jpg?04122") no-repeat center;
+  background-size: cover;
+
+  #login-box{
+    width: 364px;
+    background: rgba(0,0,0,.5);
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-left: -182px;
+    margin-top: -210px;
+    padding: 0 50px;
+    .cell-phone{
+      border-bottom: 1px solid #fff;
+      height: 40px;
+      line-height: 40px;
+      color: #fff;
+      margin: 40px 0 10px;
+      span{
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      input{
+        border: none;
+        background: transparent;
+        color: #fff;
+        font-size: 12px;
+        width:200px;
+        height: 24px;
+        line-height:24px;
+        padding-left: 4px;
+        //@include pla-hol-style(#999,12);
+      }
+
+    }
+    .vercode{
+      width: 100%;
+      height:40px;
+      line-height: 40px;
+      overflow: hidden;
+      border-bottom: 1px solid #fff;
+      margin-bottom: 10px;
+      display: none;
+      input{
+        width: 110px;
+        height: 20px;
+        line-height: 20px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 12px;
+        float: left;
+        margin-top: 10px;
+        //letter-spacing: 6px;
+        //@include pla-hol-style(#999,12);
+      }
+      img{
+        display: block;
+        width: 100px;
+        height: 30px;
+        float: right;
+        margin-top: 5px;
+        cursor: pointer;
+        background-color: #fff;
+      }
+
+    }
+    .verificationCode{
+      border-bottom: 1px solid #fff;
+      height: 40px;
+      line-height: 40px;
+      color: #fff;
+      span{
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      input{
+        font-size: 12px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        width: 90px;
+        //@include pla-hol-style(#999,12);
+      }
+      #code_num{
+        padding-left: 4px;
+        cursor: not-allowed;
+      }
+      #getVerCode{
+        width: 100px;
+        font-size: 12px;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        padding-left: 5px;
+        margin: 0;
+        border-left: 1px solid #fff;
+        //text-align: right;
+      }
+
+    }
+    .remind{
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      p{
+        text-align: center;
+        color: #ed2323;
+        font-size:12px;
+      }
+    }
+    #phone_login_btn{
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      background: transparent;
+      color: #fff;
+      font-size: 16px;
+      border: 1px solid #fff;
+      cursor: pointer;
+    }
+    .userAgreement{
+      height: 40px;
+      position: relative;
+      input{
+        display:block;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 50%;
+        margin-top: -6px;
+        left: 50%;
+        margin-left: -44px;
+      }
+      a{
+        display: block;
+        width: 56px;
+        height:20px;
+        line-height: 20px;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        border-bottom: 1px solid #fff;
+        position: absolute;
+        left: 50%;
+        top:50%;
+        margin-left: -28px;
+        margin-top: -10px;
+      }
+    }
+    .third-party{
+      overflow: hidden;
+      margin-bottom: 40px;
+      h1{
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+        font-weight: 200;
+        height: 40px;
+        line-height: 40px;
+      }
+      &>div{
+        display: flex;
+        span{
+          width: 50px;
+          text-align: center;
+          color: #fff;
+          font-size: 12px;
+          a{
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+          }
+        }
+        .qq a{
+          background:url("../images/user/qq.png?t=0407") no-repeat center;
+          background-size: 50px 50px;
+
+        }
+        .wx a{
+          background:url("../images/user/weixin.png?t=0407") no-repeat center;
+          background-size: 50px 50px;
+        }
+        .wb a{
+          background:url("../images/user/weibo.png?t=0407") no-repeat center;
+          background-size: 50px 50px;
+        }
+        span:not(:last-child){
+          margin-right: 57px;
+        }
+      }
+
+    }
+  }
+  #welcome-text{
+    width: 364px;
+    height: 420px;
+    line-height: 420px;
+    background: rgba(0,0,0,.8);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -182px;
+    margin-top: -210px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 6px;
+    display: none;
+  }
+
+}
+
+.warning-border{
+  -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+  -moz-transition:border linear .2s,-webkit-box-shadow linear .5s;
+  -ms-transition:border linear .2s,-webkit-box-shadow linear .5s;
+  -webkit-box-shadow:0 0 18px rgb(191, 5, 7);
+  -moz-box-shadow:0 0 18px rgb(191, 5, 7);
+  -ms-box-shadow:0 0 18px rgb(191, 5, 7);
+  border-color: rgba(237, 21, 13, 0.75);
+}
+
+
+

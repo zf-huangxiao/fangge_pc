@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+@import "functions";
+// http://www.html-js.com/article/Mobile-terminal-H5-mobile-terminal-HD-multi-screen-adaptation-scheme%203041
+@mixin px2rem($name, $px) {
+    #{$name}: px2rem($px);
+}
+
+// 供字体使用
+@mixin px2px($name, $px) {
+    #{$name}: round($px / 2) * 1px;
+    [data-dpr="2"] & {
+        #{$name}: $px * 1px;
+    }
+    [data-dpr="3"] & {
+        #{$name}: round($px / 2 * 3) * 1px
+    }
+    // for 三星note4
+    [data-dpr="4"] & {
+        #{$name}: $px * 2px;
+    }
+}
+
+// 解决 Android 的 dpr 大于2的情况下，border 宽度为 2px 的情况
+@mixin fix-dpr($name) {
+    [data-real-dpr="2"] & {
+        #{$name}: 1px;
+    }
+    [data-real-dpr="3"] & {
+        #{$name}: 1px;
+    }
+    [data-real-dpr="4"] & {
+        #{$name}: 1px;
+    }
+}
+
+// 多行文本益处省略
+@mixin text-clamp($lines: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+}
+
+//输入框中placeholder字号、颜色
+@mixin pla-hol-style($color:#999,$fontSize:15){
+    &::-webkit-input-placeholder { /* WebKit browsers */
+        color: $color;
+        font-size: $fontSize + px;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: $color;
+        font-size: $fontSize + px;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: $color;
+        font-size: $fontSize + px;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: $color;
+        font-size: $fontSize + px;
+    }
+}
+
+//实心三角箭头
+@mixin solid-triangle($direction:right,$color:#333,$borWidth:5px){
+    content: "";
+    display: inline-block;
+    height: 0;
+    width:0;
+    position: absolute;
+    top: 50%;
+    margin-top: -$borWidth;
+    right: 0;
+    @if($direction == 'top'){
+        border-left:   $borWidth solid transparent;
+        border-right:  $borWidth solid transparent;
+        border-bottom: $borWidth solid $color;
+
+    }@else if($direction == 'right'){
+        border-top:     $borWidth solid transparent;
+        border-bottom:  $borWidth solid transparent;
+        border-left:    $borWidth solid $color;
+
+    }@else if($direction == 'bottom'){
+        border-left:     $borWidth solid transparent;
+        border-right:    $borWidth solid transparent;
+        border-top:      $borWidth solid $color;
+
+    }@else if($direction == 'left'){
+        border-top:      $borWidth solid transparent;
+        border-bottom:   $borWidth solid transparent;
+        border-right:    $borWidth solid $color;
+    }
+
+}
+//空心三角箭头
+@mixin hollow-triangle($width:8px,$color:#000,$angle:45deg){
+    content: '';
+    display: inline-block;
+    width: $width;
+    height: $width;
+    position: absolute;
+    top: 50%;
+    margin-top: -$width/2;
+    right:1px;
+    border-top: 1px solid $color;
+    border-right: 1px solid $color;
+    -ms-transform:rotate($angle); 	    /* IE 9 */
+    -moz-transform:rotate($angle); 	    /* Firefox */
+    -webkit-transform:rotate($angle);   /* Safari 和 Chrome */
+    -o-transform:rotate($angle); 	    /* Opera */
+    transform:rotate($angle);
+}

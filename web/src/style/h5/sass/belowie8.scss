@@ -1,0 +1,19 @@
+body{
+  #footer{
+    .logo{
+      span{
+        background: none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.veryside.com/assets/images/m-header-logo-white.png',sizingMethod='scale');
+
+      }
+    }
+    .copyright{
+      a{
+        i{
+          background: none!important;
+          filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.veryside.com/assets/images/beian.png',sizingMethod='scale');
+        }
+      }
+    }
+  }
+}

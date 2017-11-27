@@ -1,0 +1,62 @@
+.friendslink{
+  font-family: 微软雅黑;
+  width:100%;
+  border-top: 1px solid #a0a0a0;
+  .h{
+    width: $box-width;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px auto 0;
+    a{
+      text-decoration: none;
+      color: #000;
+    }
+    h1{
+      display: inline-block;
+      font-size: 22px;
+      font-weight: 200;
+
+    }
+    span{
+      display: inline-block;
+      float: right;
+      font-size: 12px;
+      a{
+        display: inline-block;
+        position: relative;
+        padding-right: 10px;
+        &:hover{
+          color: #999;
+          &:after{
+            border-color: #999;
+          }
+        }
+        &:after{
+          @include hollow-triangle();
+        }
+      }
+    }
+  }
+  ul{
+    list-style: none;
+    width: $box-width;
+    margin: 0 auto 30px;
+    overflow: hidden;
+    li{
+      float: left;
+      margin-right: 15px;
+      &:last-child{
+        margin: 0;
+      }
+      a{
+        color: #333;
+        font-size: 14px;
+        &:hover{
+          color:#999;
+        }
+      }
+
+    }
+  }
+
+}

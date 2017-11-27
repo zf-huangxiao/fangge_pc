@@ -1,0 +1,32 @@
+<%=
+    (function(link){
+		var str = '';
+		var base = this.SCRIPT_BASE;
+		var sversion = this.SVERSION;
+		str += '<script type="text/javascript" src="'+base+'assets/js/jquery.min.js?'+sversion+'"></script>';
+		link && link.map(function(src){
+			str += '<script type="text/javascript" src="'+base+'javascript/'+src+'.js?'+sversion+'"></script>';
+		});
+		return str;
+	})(this._JSLinks);
+%>
+
+<% if(this._JSstack && this._JSstack.length) { %>
+	<script type="text/javascript">
+		<%= this._JSstack.join("\n");%>
+	</script>
+<% } %>
+
+<div style="display:none">
+	<script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?caa07da325bdd4c0a30d1ba365e2e2b1";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+	</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{ 
+	"controller" : "controller/" ,
+	"lib" : "lib/" ,
+	"model" : "model/" ,
+	"views" : "views/" ,
+	"config" : "config/" ,
+	"compiledViews" : "../tmp/",
+	"base" : "base/"
+}

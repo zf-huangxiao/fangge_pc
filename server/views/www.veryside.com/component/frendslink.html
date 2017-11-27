@@ -1,0 +1,20 @@
+<%if(this.indexlist.friend_link instanceof Array && this.indexlist.friend_link.length>0){ var links=this.indexlist.friend_link;%>
+<div class="friendslink">
+    <div class="h">
+        <h1>友情链接</h1>
+        <span>
+               <a href="/friends/">
+                   查看全部
+               </a>
+        </span>
+    </div>
+    <ul>
+        <% links.forEach(function(link,index){%>
+        <li>
+            <a href="<%= link.url%>" target="_blank"><%= link.title%></a>
+        </li>
+        <%})%>
+
+    </ul>
+</div>
+<%}%>

@@ -1,0 +1,33 @@
+@import '../storebase';
+@import '../components/footer';
+@import '../components/nav';
+
+.body-wrapper{
+  margin: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top:60px;
+  background: url("../images/login_bg.jpg") no-repeat center;
+  background-size: cover;
+  #welcome-text{
+    width: 364px;
+    height: 420px;
+    line-height: 420px;
+    background: rgba(0,0,0,.8);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -182px;
+    margin-top: -210px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 6px;
+  }
+
+}
+
+
+

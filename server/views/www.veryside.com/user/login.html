@@ -1,0 +1,47 @@
+<%# helper/header.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+    <div id="login-box">
+        <div class="cell-phone">
+            <span>手机号</span>
+            <input id="phone_num" type="text" placeholder="输入即可登录" maxlength="11"  onkeyup="this.value=this.value.replace(/\D/g,'')">
+        </div>
+        <div class="vercode">
+            <input id="vercode-num" type="text" maxlength="4" placeholder="输入验证码" onkeyup="this.value=this.value.replace(/\D/g,'')">
+            <img id="vercode-pic" src="/captcha" alt="验证码">
+
+        </div>
+        <div class="verificationCode">
+            <span>动态码</span>
+            <input id="code_num" type="text" placeholder="输入动态码" maxlength="4" disabled onkeyup="this.value=this.value.replace(/\D/g,'')">
+            <input type="button" id="getVerCode" value="获取动态码"  />
+        </div>
+        <div class="remind">
+            <p id="err_msg_box"></p>
+        </div>
+        <button id="phone_login_btn">登录</button>
+        <div class="userAgreement">
+            <input id="user_agreement" type="checkbox" checked="checked">
+            <a href="/useragreement/">用户协议</a>
+        </div>
+        <div class="third-party">
+            <h1>第三方账号登录</h1>
+            <div>
+                <span class="qq">
+                    <a href="javascript:;" target="_self" id="qq_login"></a>QQ
+                </span>
+                <span class="wx">
+                    <a href="javascript:;" target="_self" id="wx_login"></a>微信
+                </span>
+                <span class="wb">
+                    <a href="javascript:;" target="_self" id="wb_login"></a>微博
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div id="welcome-text" >您已登录!</div>
+</div>
+<%# helper/footer1.html %>
+

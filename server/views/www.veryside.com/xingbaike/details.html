@@ -1,0 +1,119 @@
+<%# helper/headerarticle.html %>
+<%# component/nav.html %>
+
+<% if(this.indexlist){ var lists=this.indexlist.list,info=this.indexlist.info,crumbs=this.indexlist.breadcrumbs;%>
+<div class="body-wrapper">
+    <%# component/breadcrumbs.html%>
+
+    <div class="introduce">
+        <div class="intr-left">
+            <img src="<%= info.thumb%>" alt="<%= info.title%>">
+        </div>
+
+        <div class="articleInt mCustomScrollbar">
+            <div class="hgroup">
+                <h1>
+                    <em><%= info.etitle%></em>
+                    <%= info.title%>
+                </h1>
+                <h2><%= info.summary%></h2>
+            </div>
+            <p><%= info.description%></p>
+
+            <div class="brand">
+                <%if(info.logo){%>
+                <img src="<%= info.logo%>" alt="">
+                <%}%>
+                <%if(info.view instanceof Array && info.view.length>0){ var views=info.view;%>
+                <% views.forEach(function(view,index){%>
+                <div>
+                    <span><%= view.label%>:</span>
+                    <%if(view.val && view.val instanceof Array && view.val.length>0){ var vals=view.val;%>
+                    <div>
+                        <% vals.forEach(function(val,index){%>
+                        <a href="<%= val.url%>"><%= val.title%></a>
+                        <%})%>
+                    </div>
+                    <%}else if( typeof view.val == 'string'){%>
+                    <span><%= view.val%></span>
+                    <%}%>
+                </div>
+                <%})%>
+
+                <%}%>
+
+            </div>
+
+        </div>
+        <!--<div class="checkmore">-->
+            <!--<p><a target="_self" href="javascript:;">查看更多</a></p>-->
+        <!--</div>-->
+    </div>
+    <%# component/share.html%>
+    <%if(lists.length>0){%>
+    <div class="articles">
+        <ul>
+             <% lists.forEach(function(list,index){%>
+            <li>
+                <a href="<%= list.url%>" class="pic">
+                    <img src="<%= list.thumb %>" alt="<% list.tag.title%>">
+                </a>
+                <div>
+                    <%if(list.tag){%>
+                    <p class="tag">
+                        <a href="<%= list.tag.url%>"><%= list.tag.title%></a>
+                    </p>
+                    <%}%>
+                    <h1><a href="<%= list.url%>"><%= list.title%></a></h1>
+                    <span>
+                        <a href="<%= list.author.url%>"><%= list.author.nickname%></a><%= list.timeStr%>
+                    </span>
+                </div>
+            </li>
+            <%})%>
+
+        </ul>
+        <%# component/motianlou.html%>
+    </div>
+    <%# component/page.html%>
+    <%}%>
+    <%# component/morelists.html%>
+
+
+
+
+</div>
+<%}%>
+
+<%# component/footer.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer1.html %>
+
+<script id="j-tmpl-newlist" type="text/template">
+    {{ for(var i = 0; i < it.list.length; i++){ }}
+
+    <div data-time="{{=it.list[i].time}}">
+        <a class="lista" href="{{= it.list[i].url}}">
+
+            <div  class="list-img pic">
+                <img  src="{{= it.list[i].thumb }}" alt="">
+            </div>
+
+        </a>
+
+        <div class="list-desc">
+            <p class="article-tag">
+                <a href="{{= it.list[i].tag.url }}">{{= it.list[i].tag.title }}</a>
+            </p>
+            <h3 class="list-title"><a href="{{= it.list[i].url }}">{{=it.list[i].title }}</a></h3>
+            <div class="list-author" >
+                <a class="name" href="{{= it.list[i].author.url}}">{{= it.list[i].author.nickname}}</a>
+                <span>{{= it.list[i].timeStr}}</span>
+            </div>
+
+        </div>
+    </div>
+
+    {{ } }}
+</script>

@@ -1,0 +1,11 @@
+<div class="search-tmpl" id="search-tmpl" temId="j-tmpl-search">
+
+</div>
+<input type="hidden" value="" id="search-tmpl-hide">
+<script id="j-tmpl-search" type="text/template">
+    {{ for(var i = 0; i < it.length; i++){ }}
+
+    <a target="_self" href="javascript:;">{{=it[i].title}}</a>
+
+    {{ } }}
+</script>

@@ -1,0 +1,104 @@
+<%if(this.indexlist instanceof Array && this.indexlist.length==0){%>
+<%# helper/404.html %>
+<%}else{%>
+
+<%# helper/header.html %>
+<%# component/nav.html %>
+<div class="body-wrapper">
+	<div class="top-classify">
+		<div class="top-pic">
+			<%if(this.indexlist.picture){%>
+			<img src="<%= this.indexlist.picture %>" alt="">
+			<%}%>
+		</div>
+		<ul>
+			<%if(this.indexlist.topic instanceof Array && this.indexlist.topic.length > 0){var topic = this.indexlist.topic%>
+			<%if(this.pageTitle.indexOf('街拍综合页') > -1){%>
+			<%topic.forEach(function(cur,index){%>
+			<%if(index < 5){%>
+			<li class="jiepaiLi">
+				<a href="<%= cur.url||''%>"><%= cur.title||''%></a>
+			</li>
+			<%}%>
+			<%})%>
+			<%}else{%>
+
+			<%topic.forEach(function(cur,index){%>
+			<%if(index < 4){%>
+			<li class="shizhuangzhouLi">
+				<a href="<%= cur.url||''%>"><%= cur.title||''%></a>
+			</li>
+			<%}%>
+			<%})%>
+
+			<%}%>
+			<%}%>
+		</ul>
+	</div>
+	<div class="content-lists">
+		<h3><%= this.indexlist.seo.h1||''%></h3>
+		<ul>
+			<%if(this.indexlist.list instanceof Array && this.indexlist.list.length > 0){var lists = this.indexlist.list%>
+			<%lists.forEach(function(cur,index){%>
+			<li>
+				<a class="pic" href="<%= cur.url||''%>">
+					<img src="<%= cur.thumb||''%>" alt="<%= cur.title||''%>">
+				</a>
+				<div>
+					<p>
+						<a class="tag" href="<%= cur.tag.url||''%>"><%= cur.tag.title||''%></a>
+					</p>
+					<h1>
+						<a href="<%= cur.url||''%>"><%= cur.title||''%></a>
+					</h1>
+					<span>
+						<%if(cur.author && typeof cur.author =='object'){var author = cur.author%>
+						<a href="<%= author.url||''%>"><%= author.nickname||''%></a>
+						<%= cur.timeStr||''%>
+						<%}%>
+					</span>
+
+				</div>
+			</li>
+			<%})%>
+			<%}%>
+		</ul>
+		<%# component/motianlou.html%>
+	</div>
+	<%# component/page.html%>
+	<%# component/morelists.html%>
+</div>
+<%# component/return_top.html%>
+<%# component/footer.html%>
+<%# helper/footer1.html %>
+
+<script id="j-tmpl-newlist" type="text/template">
+	{{ for(var i = 0; i < it.list.length; i++){ }}
+
+	<div data-time="{{=it.list[i].time}}">
+		<a class="lista" href="{{= it.list[i].url}}">
+
+			<div  class="list-img pic">
+				<img  src="{{= it.list[i].thumb }}" alt="">
+			</div>
+
+		</a>
+
+		<div class="list-desc">
+			<p class="article-tag">
+				<a href="{{= it.list[i].tag.url }}">{{= it.list[i].tag.title }}</a>
+			</p>
+			<h3 class="list-title"><a href="{{= it.list[i].url }}">{{=it.list[i].title }}</a></h3>
+			<div class="list-author" >
+				<a class="name" href="{{= it.list[i].author.url}}">{{= it.list[i].author.nickname}}</a>
+				<span>{{= it.list[i].timeStr}}</span>
+			</div>
+
+		</div>
+	</div>
+
+	{{ } }}
+</script>
+
+<%}%>
+

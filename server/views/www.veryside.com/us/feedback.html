@@ -1,0 +1,39 @@
+<%# helper/header.html %>
+<%# component/nav2.html %>
+<div class="body-wrapper">
+    <div class="title">
+        <ul>
+            <li><a href="/aboutus/">关于我们</a></li>
+            <li><a href="/contactus/">联系我们</a></li>
+            <li><a href="/joinus/">作者招募</a></li>
+            <li class="active">反馈建议</li>
+            <li><a href="/useragreement/">用户协议</a></li>
+            <%if(this.indexlist.friend_link instanceof Array && this.indexlist.friend_link.length >0 ){%>
+            <li><a href="/friends/">友情链接</a></li>
+            <%}%>
+        </ul>
+    </div>
+    <i class="line"></i>
+    <div class="content">
+
+        <ul>
+            <li class="li_feedback">
+                <div class="form">
+                    <div class="suggestions">
+                        <textarea  id="" placeholder="请提出您的问题或建议，我们会非常重视，谢谢你!"></textarea>
+                    </div>
+                    <div class="phoneNum">
+                        <span>联系方式</span>
+                        <input class="contact" type="text" placeholder="输入您的手机号或邮箱">
+                    </div>
+                    <button>提交</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<%# helper/footer1.html %>
+
+

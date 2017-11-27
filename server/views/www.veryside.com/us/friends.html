@@ -1,0 +1,35 @@
+<%# helper/header.html %>
+<%# component/nav2.html %>
+<div class="body-wrapper">
+    <div class="title">
+        <ul>
+            <li><a href="/aboutus/">关于我们</a></li>
+            <li><a href="/contactus/">联系我们</a></li>
+            <li><a href="/joinus/">作者招募</a></li>
+            <li><a href="/feedback/">反馈建议</a></li>
+            <li><a href="/useragreement/">用户协议</a></li>
+
+            <%if(this.indexlist.friend_link instanceof Array && this.indexlist.friend_link.length >0 ){%>
+            <li class="active">友情链接</li>
+            <%}%>
+        </ul>
+    </div>
+    <i class="line"></i>
+    <div class="content">
+
+        <ul>
+            <%if(this.indexlist.friend_link instanceof Array && this.indexlist.friend_link.length >0 ){var lists=this.indexlist.friend_link;%>
+            <li class="li_friendlink">
+                <% lists.forEach(function(list,index){%>
+                <a href="<%= list.url%>" target="_blank"><%= list.title%></a>
+                <%})%>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+</div>
+
+
+<%# helper/footer1.html %>
+
+

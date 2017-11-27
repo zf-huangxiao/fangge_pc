@@ -1,0 +1,199 @@
+@import '../storebase';
+@import '../components/nav';
+@import '../components/swiper-min';
+@import '../components/footer';
+@import '../components/morelists';
+@import '../components/whitespace';
+@import '../components/return-top';
+@import '../components/breadcrumbs';
+@import '../components/tooltipster.bundle';
+
+$box-width:1100px;
+$bg:#f8f8f8;
+.body-wrapper{
+  width: $box-width;
+  margin: 0 auto 90px;
+  color: #000;
+  .brandsTitle{
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 22px;
+  }
+  .letters{
+    overflow: hidden;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    ul{
+      list-style: none;
+      overflow: hidden;
+      text-align: center;
+      li{
+        //float: left;
+      }
+
+      li{
+        display: inline-block;
+        font-size: 16px;
+        width: 22px;
+        height:64px;
+        line-height: 64px;
+        margin:0 10px;
+        a{
+          display: block;;
+          width:24px;
+          height: 63px;
+          line-height:63px;
+          text-align: center;
+          text-decoration: none;
+          color: #000;
+          font-size: 28px;
+        }
+        a.current{
+          border-bottom: 1px solid #fe1313;
+        }
+
+
+      }
+    }
+  }
+  .logos{
+    width: 100%;
+    column-count:3;
+    -moz-column-count:3; /* Firefox */
+    -webkit-column-count:3; /* Safari and Chrome */
+    padding-left: 54px;
+    &>div{
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      -moz-column-fill: balance;
+      break-inside: avoid-column;
+      -webkit-column-break-inside: avoid;
+      -moz-column-break-inside: avoid;
+      -o-column-break-inside: avoid;
+      column-break-inside: avoid;
+      page-break-inside: avoid;
+      span.letter{
+        display:block;
+        width: 100%;
+        height:35px;
+        line-height: 35px;
+        background: white;
+        font-size: 28px;
+        color:#333;
+        margin:30px 0 17px 0;
+      }
+      span.active{
+        color: #fe1313;
+      }
+      ul{
+        list-style: none;
+        width: 100%;
+        overflow: hidden;
+        li{
+          margin-bottom: 25px;
+          a{
+            color: #000;
+            text-decoration: none;
+          }
+          a:hover{
+            color: #999;
+          }
+          //a:active {
+          //  color: #999;
+          //}
+        }
+      }
+    }
+
+  }
+}
+
+//theme :tooltipster-shadow
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-box {
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 10px 6px rgba(0, 0, 0, .1)
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-bottom .tooltipster-box {
+  margin-top: 6px
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-left .tooltipster-box {
+  margin-right: 6px
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-right .tooltipster-box {
+  margin-left: 6px
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-top .tooltipster-box {
+  margin-bottom: 6px
+}
+
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-content {
+  color: #8d8d8d
+}
+
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-arrow {
+  height: 6px;
+  margin-left: -6px;
+  width: 12px
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-left .tooltipster-arrow, .tooltipster-sidetip.tooltipster-shadow.tooltipster-right .tooltipster-arrow {
+  height: 12px;
+  margin-left: 0;
+  margin-top: -6px;
+  width: 6px
+}
+
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-arrow-background {
+  display: none
+}
+
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-arrow-border {
+  border: 6px solid transparent
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-bottom .tooltipster-arrow-border {
+  border-bottom-color: #fff
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-left .tooltipster-arrow-border {
+  border-left-color: #fff
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-right .tooltipster-arrow-border {
+  border-right-color: #fff
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-top .tooltipster-arrow-border {
+  border-top-color: #fff
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-bottom .tooltipster-arrow-uncropped {
+  top: -6px
+}
+
+.tooltipster-sidetip.tooltipster-shadow.tooltipster-right .tooltipster-arrow-uncropped {
+  left: -6px
+}
+.tooltipster-content{
+  div{
+    width:250px;
+    height: 167px;
+    img{
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+}
+h1,h2,h3{
+  font-weight: 200;
+}

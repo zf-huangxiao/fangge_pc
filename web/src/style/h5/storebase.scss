@@ -1,0 +1,25 @@
+@import 'base/base';
+@import 'helpers/functions';
+@import 'helpers/mixins';
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.hide {
+  display: none !important;
+}
+
+
